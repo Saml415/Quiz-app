@@ -1,4 +1,4 @@
-const myQuestions = [
+var myQuestions = [
   {
     question: "Who won the 1992 NL Cy Young Award?",
     answers: {
@@ -51,3 +51,33 @@ const myQuestions = [
     correctAnswer: "b",
   },
 ];
+
+var a_text = document.getElementById('a_text');
+var b_text = document.getElementById('b_text');
+var c_text = document.getElementById('c_text');
+var d_text = document.getElementById('d_text');
+var timerEl = document.getElementById('#timer');
+var startButton = document.getElementById('#startbutton');
+var winCounter = 0;
+var loseCounter = 0;
+var timer;
+var timerCount;
+
+ function startTimer(){
+   timner = setInterval(function(){
+     timerCount--;
+   })
+
+ }
+
+ function startQuiz(){
+   
+ }
+
+ startButton.addEventListener('click', startQuiz)
+
+
+
+ 
+
+
