@@ -60,12 +60,25 @@ var timerEl = document.getElementById('#timer');
 var startButton = document.getElementById('#startbutton');
 var winCounter = 0;
 var loseCounter = 0;
+var isWin = false;
 var timer;
 var timerCount;
 
  function startTimer(){
    timner = setInterval(function(){
      timerCount--;
+     timerEl.textContent = timerCount;
+     if(isWin && timerCount > 0) {
+       clearInterval(timer);
+       winGame();
+     }
+
+     if (timerCount <= 0) {
+
+      clearInterval(timer);
+      loseCounter();
+     }
+    }, 1000),
    })
 
  }
