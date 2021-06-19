@@ -52,46 +52,36 @@ var myQuestions = [
   },
 ];
 
-var a_text = document.getElementById('a_text');
-var b_text = document.getElementById('b_text');
-var c_text = document.getElementById('c_text');
-var d_text = document.getElementById('d_text');
-var timerEl = document.getElementById('#timer');
-var startButton = document.getElementById('#startbutton');
+var a_text = document.getElementById("a_text");
+var b_text = document.getElementById("b_text");
+var c_text = document.getElementById("c_text");
+var d_text = document.getElementById("d_text");
+var timerEl = document.getElementById("timer");
+var startButton = document.getElementById("startbutton");
 var winCounter = 0;
 var loseCounter = 0;
 var isWin = false;
 var timer;
 var timerCount;
 
- function startTimer(){
-   timer = setInterval(function(){ 
-     timerCount--;
-     timerEl.textContent = timerCount;
-     if(isWin && timerCount > 0) {
-       clearInterval(timer);
-       winGame();
-     }
-
-     if (timerCount <= 0) {
-
+function startTimer(){
+  timer = setInterval(function(){ 
+    timerCount--;
+    timerEl.textContent = timerCount;
+    if(isWin && timerCount > 0) {
       clearInterval(timer);
-      loseCounter();
-     }
-    }, 1000),
- 
-
- function startQuiz(){
-   isWin = false;
-   timerCount = 60;
-   startTimer();
-   
- }
-
- startButton.addEventListener('click', startQuiz);
-
-
-
- 
-
- }
+      winGame();
+    }
+    if (timerCount <= 0) {
+     clearInterval(timer);
+     loseCounter();
+    }
+   }, 1000)
+}
+function startQuiz(){
+  isWin = false;
+  timerCount = 60;
+  startTimer();
+}
+startButton.addEventListener('click', startQuiz);
+  
