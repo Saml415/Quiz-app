@@ -65,7 +65,7 @@ var timer;
 var timerCount;
 
  function startTimer(){
-   timner = setInterval(function(){
+   timer = setInterval(function(){ 
      timerCount--;
      timerEl.textContent = timerCount;
      if(isWin && timerCount > 0) {
@@ -79,18 +79,19 @@ var timerCount;
       loseCounter();
      }
     }, 1000),
-   })
-
- }
+ 
 
  function startQuiz(){
+   isWin = false;
+   timerCount = 60;
+   startTimer();
    
  }
 
- startButton.addEventListener('click', startQuiz)
+ startButton.addEventListener('click', startQuiz);
 
 
 
  
 
-
+ }
