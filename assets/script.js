@@ -83,5 +83,11 @@ function startQuiz(){
   timerCount = 60;
   startTimer();
 }
+
+
+function addNew(){
+  document.getElementById("header").innerHTML = "Who won the 1992 NL Cy Young Award?"
+}
 startButton.addEventListener('click', startQuiz);
+startButton.addEventListener('click', addNew);
   
