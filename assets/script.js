@@ -91,6 +91,9 @@ function addNew(){
   var highscore = document.getElementById('highscore');
   var newUl = document.createElement('ul')
   var newLi = document.createElement('li')
+  var newLib = document.createElement('li')
+  var newLic = document.createElement('li')
+  var newLid = document.createElement('li')
   var newButton = document.createElement('button');
   var newLabel = document.createElement('label');
   var newButtonb = document.createElement('button');
@@ -114,30 +117,30 @@ function addNew(){
   newButton.append(newLabel);
   newLabel.textContent = myQuestions[questionCount].answers.a;
   
-  newUl.appendChild(newLi);
+  newUl.append(newLib);
   newButtonb.setAttribute('id', 'b');
   newButtonb.setAttribute('name', 'answer');
   newLabelb.setAttribute('id', 'b_text');
   newLabelb.setAttribute('for', 'b');
-  newLi.append(newButtonb);
+  newLib.append(newButtonb);
   newButtonb.append(newLabelb);
   newLabelb.textContent = myQuestions[questionCount].answers.b;
 
-  newUl.appendChild(newLi);
+  newUl.appendChild(newLic);
   newButtonc.setAttribute('id', 'c');
   newButtonc.setAttribute('name', 'answer');
-  newLabelb.setAttribute('id', 'c_text');
-  newLabelb.setAttribute('for', 'c');
-  newLi.append(newButtonc);
-  newButtonb.append(newLabelc);
+  newLabelc.setAttribute('id', 'c_text');
+  newLabelc.setAttribute('for', 'c');
+  newLic.append(newButtonc);
+  newButtonc.append(newLabelc);
   newLabelc.textContent = myQuestions[questionCount].answers.c;
 
-  newUl.appendChild(newLi);
+  newUl.appendChild(newLid);
   newButtond.setAttribute('id', 'd');
   newButtond.setAttribute('name', 'answer');
   newLabeld.setAttribute('id', 'd_text');
   newLabeld.setAttribute('for', 'd');
-  newLi.append(newButtond);
+  newLid.append(newButtond);
   newButtond.append(newLabeld);
   newLabeld.textContent = myQuestions[questionCount].answers.d;
  
