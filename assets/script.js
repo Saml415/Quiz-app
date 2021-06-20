@@ -63,7 +63,7 @@ var loseCounter = 0;
 var isWin = false;
 var timer;
 var timerCount;
-
+var questionCount = 0;
 function startTimer(){
   timer = setInterval(function(){ 
     timerCount--;
@@ -86,15 +86,27 @@ function startQuiz(){
 
 
 function addNew(){
-  document.getElementById("header").innerHTML = "Who won the 1992 NL Cy Young Award?";
+  document.getElementById("header").innerHTML = myQuestions[questionCount].question;
   var paragraph = document.getElementById('paragraph');
   var highscore = document.getElementById('highscore');
   var newUl = document.createElement('ul')
   var newLi = document.createElement('li')
+  var newButton = document.createElement('button');
+  var newLabel = document.createElement('label');
+   var newButtona = document.createElement('button');
+  var newLabela = document.createElement('label');
   paragraph.remove();
   highscore.remove();
+  startButton.remove();
   document.body.appendChild(newUl);
   newUl.appendChild(newLi);
+  newButton.setAttribute('id', 'a');
+  newButton.setAttribute('name', 'answer');
+  newLabel.setAttribute('id', 'a_text');
+  newLabel.setAttribute('for', 'a');
+  newLi.append(newButton);
+  newButton.append(newLabel);
+  newLabel.textContent = myQuestions[questionCount].answers.a;
   
   
  
