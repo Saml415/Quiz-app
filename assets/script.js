@@ -86,8 +86,19 @@ function startQuiz(){
 
 
 function addNew(){
-  document.getElementById("header").innerHTML = "Who won the 1992 NL Cy Young Award?"
+  document.getElementById("header").innerHTML = "Who won the 1992 NL Cy Young Award?";
+  var paragraph = document.getElementById('paragraph');
+  var highscore = document.getElementById('highscore');
+  var newUl = document.createElement('ul')
+  var newLi = document.createElement('li')
+  paragraph.remove();
+  highscore.remove();
+  document.body.appendChild(newUl);
+  newUl.appendChild(newLi);
   
+  
+ 
+ 
 
 }
 startButton.addEventListener('click', startQuiz);
