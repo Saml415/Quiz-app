@@ -145,19 +145,35 @@ function addNew() {
   newLabeld.textContent = myQuestions[questionCount].answers.d;
 }
 
-for (i = 0; i < myQuestions.length; i++){
-function selectAnswer(){
-  if (answer != myQuestions[questionCount].correctAnswer){
-    timerCount - 5; 
-    questionCount++;
-  }
-  else{
-    questionCount++
-  }
-}
-}
+function selectAnswer(answerChoice){
+  if (answerChoice != myQuestions[questionCount].correctAnswer){  
+ timerCount - 5;    
+ questionCount++;
+ }  else{  
+ questionCount++  }}
+// function nextQuestion() {
+//   //logic to render myQuestions[questionCount]
+//   questionCount++
+//   }
+// 
 
 startButton.addEventListener("click", startQuiz);
 startButton.addEventListener("click", addNew);
-newButton.addEventListener("click", selectAnswer)
 
+a.addEventListener("click", selectAnswer);
+  
+
+b.addEventListener("click", ()=>{
+  console.log(answerChoice);
+  selectAnswer(answerChoice)
+})
+
+c.addEventListener("click", ()=>{
+  console.log(answerChoice);
+  selectAnswer(answerChoice)
+})
+
+d.addEventListener("click", ()=>{
+  console.log(answerChoice);
+  selectAnswer(answerChoice)
+})
