@@ -89,6 +89,7 @@ function addNew() {
     myQuestions[questionCount].question;
   var paragraph = document.getElementById("paragraph");
   var highscore = document.getElementById("highscore");
+  var newWrap = document.createElement("div")
   var newUl = document.createElement("ul");
   var newLi = document.createElement("li");
   var newLib = document.createElement("li");
@@ -102,11 +103,26 @@ function addNew() {
   var newLabelc = document.createElement("label");
   var newButtond = document.createElement("button");
   var newLabeld = document.createElement("label");
-
   paragraph.remove();
   highscore.remove();
   startButton.remove();
-  document.body.appendChild(newUl);
+  document.body.append(newWrap);
+  newWrap.append(newUl);
+
+
+  newWrap.setAttribute("class", "wrapper")
+
+  var answerContainer = document.querySelector('.wrapper');
+
+  answerContainer.addEventListener('click', function(event){
+    var element = event.target
+  
+  
+  });
+
+
+
+
 
   newUl.appendChild(newLi);
   newButton.setAttribute("id", "a");
@@ -145,17 +161,17 @@ function addNew() {
   newLabeld.textContent = myQuestions[questionCount].answers.d;
 }
 
-function selectAnswer(answerChoice){
-  if (answerChoice != myQuestions[questionCount].correctAnswer){  
- timerCount - 5;    
- questionCount++;
- }  else{  
- questionCount++  }}
-// function nextQuestion() {
-//   //logic to render myQuestions[questionCount]
-//   questionCount++
-//   }
-// 
+
+// function selectAnswer(answerChoice){
+//   if (answerChoice != myQuestions[questionCount].correctAnswer){  
+//  timerCount - 5;    
+//  questionCount++;
+//  }  else{  
+//  questionCount++  }}
+
+function nextQuestion(event){
+  document.querySelector("#")
+} 
 
 startButton.addEventListener("click", startQuiz);
 startButton.addEventListener("click", addNew);
