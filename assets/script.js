@@ -46,7 +46,7 @@ var myQuestions = [
       a: "Atlanta",
       b: "New York City",
       c: "Los Angeles",
-      d: "St.Louis",
+      d: "St. Louis",
     },
     correctAnswer: "b",
   },
@@ -63,7 +63,9 @@ var loseCounter = 0;
 var isWin = false;
 var timer;
 var timerCount;
-var questionCount = 0;
+var questionIndex = 3;
+var answerContainer = document.querySelector('#answer-container');
+console.log(answerContainer);
 function startTimer() {
   timer = setInterval(function () {
     timerCount--;
@@ -86,7 +88,7 @@ function startQuiz() {
 
 function addNew() {
   document.getElementById("header").innerHTML =
-    myQuestions[questionCount].question;
+    myQuestions[questionIndex].question;
   var paragraph = document.getElementById("paragraph");
   var highscore = document.getElementById("highscore");
   var newWrap = document.createElement("div")
@@ -95,30 +97,28 @@ function addNew() {
   var newLib = document.createElement("li");
   var newLic = document.createElement("li");
   var newLid = document.createElement("li");
-  var newButton = document.createElement("button");
-  var newLabel = document.createElement("label");
+  var newButton = document.createElement("button"); 
   var newButtonb = document.createElement("button");
-  var newLabelb = document.createElement("label");
   var newButtonc = document.createElement("button");
-  var newLabelc = document.createElement("label");
   var newButtond = document.createElement("button");
-  var newLabeld = document.createElement("label");
+  console.log(answerContainer);
+  
   paragraph.remove();
   highscore.remove();
   startButton.remove();
-  document.body.append(newWrap);
-  newWrap.append(newUl);
+  document.body.append(answerContainer);
+  answerContainer.append(newUl);
 
 
   newWrap.setAttribute("class", "wrapper")
 
-  var answerContainer = document.querySelector('.wrapper');
+  // var answerContainer = document.querySelector('.wrapper');
 
-  answerContainer.addEventListener('click', function(event){
-    var element = event.target
+  // answerContainer.addEventListener('click', function(event){
+  //   var element = event.target
   
   
-  });
+  // });
 
 
 
@@ -127,45 +127,33 @@ function addNew() {
   newUl.appendChild(newLi);
   newButton.setAttribute("id", "a");
   newButton.setAttribute("name", "answer");
-  newLabel.setAttribute("id", "a_text");
-  newLabel.setAttribute("for", "a");
   newLi.append(newButton);
-  newButton.append(newLabel);
-  newLabel.textContent = myQuestions[questionCount].answers.a;
+  newButton.textContent = myQuestions[questionIndex].answers.a;
 
   newUl.append(newLib);
   newButtonb.setAttribute("id", "b");
   newButtonb.setAttribute("name", "answer");
-  newLabelb.setAttribute("id", "b_text");
-  newLabelb.setAttribute("for", "b");
   newLib.append(newButtonb);
-  newButtonb.append(newLabelb);
-  newLabelb.textContent = myQuestions[questionCount].answers.b;
+  newButtonb.textContent = myQuestions[questionIndex].answers.b;
 
   newUl.appendChild(newLic);
   newButtonc.setAttribute("id", "c");
   newButtonc.setAttribute("name", "answer");
-  newLabelc.setAttribute("id", "c_text");
-  newLabelc.setAttribute("for", "c");
-  newLic.append(newButtonc);
-  newButtonc.append(newLabelc);
-  newLabelc.textContent = myQuestions[questionCount].answers.c;
+  newLic.append(newButtonc); 
+  newButtonc.textContent = myQuestions[questionIndex].answers.c;
 
   newUl.appendChild(newLid);
   newButtond.setAttribute("id", "d");
   newButtond.setAttribute("name", "answer");
-  newLabeld.setAttribute("id", "d_text");
-  newLabeld.setAttribute("for", "d");
   newLid.append(newButtond);
-  newButtond.append(newLabeld);
-  newLabeld.textContent = myQuestions[questionCount].answers.d;
+  newButtond.textContent = myQuestions[questionIndex].answers.d;
 }
 
 
 // function selectAnswer(answerChoice){
 //   if (answerChoice != myQuestions[questionCount].correctAnswer){  
 //  timerCount - 5;    
-//  questionCount++;
+//  questionCount+;+
 //  }  else{  
 //  questionCount++  }}
 
@@ -176,9 +164,14 @@ function nextQuestion(event){
 startButton.addEventListener("click", startQuiz);
 startButton.addEventListener("click", addNew);
 
-document.getElementById("a").addEventListener("click", selectAnswer(answerChoice));
-document.getElementById("b").addEventListener("click", selectAnswer(answerChoice));
-document.getElementById("c").addEventListener("click", selectAnswer(answerChoice));
-document.getElementById("d").addEventListener("click", selectAnswer(answerChoice));
-  
+answerContainer.addEventListener("click", function(event) {
+  var element = event.target
+  if(element.matches('button')){
+    questionIndex++;
+  }
+});
+
+
+
+
 
