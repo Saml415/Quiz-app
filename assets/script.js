@@ -160,20 +160,9 @@ function selectAnswer(answerChoice){
 startButton.addEventListener("click", startQuiz);
 startButton.addEventListener("click", addNew);
 
-a.addEventListener("click", selectAnswer);
+document.getElementById("a").addEventListener("click", selectAnswer(answerChoice));
+document.getElementById("b").addEventListener("click", selectAnswer(answerChoice));
+document.getElementById("c").addEventListener("click", selectAnswer(answerChoice));
+document.getElementById("d").addEventListener("click", selectAnswer(answerChoice));
   
 
-b.addEventListener("click", ()=>{
-  console.log(answerChoice);
-  selectAnswer(answerChoice)
-})
-
-c.addEventListener("click", ()=>{
-  console.log(answerChoice);
-  selectAnswer(answerChoice)
-})
-
-d.addEventListener("click", ()=>{
-  console.log(answerChoice);
-  selectAnswer(answerChoice)
-})
