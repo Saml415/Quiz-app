@@ -64,89 +64,100 @@ var isWin = false;
 var timer;
 var timerCount;
 var questionCount = 0;
-function startTimer(){
-  timer = setInterval(function(){ 
+function startTimer() {
+  timer = setInterval(function () {
     timerCount--;
     timerEl.textContent = timerCount;
-    if(isWin && timerCount > 0) {
+    if (isWin && timerCount > 0) {
       clearInterval(timer);
       winGame();
     }
     if (timerCount <= 0) {
-     clearInterval(timer);
-     loseCounter();
+      clearInterval(timer);
+      loseCounter();
     }
-   }, 1000)
+  }, 1000);
 }
-function startQuiz(){
+function startQuiz() {
   isWin = false;
   timerCount = 60;
   startTimer();
 }
 
+function addNew() {
+  document.getElementById("header").innerHTML =
+    myQuestions[questionCount].question;
+  var paragraph = document.getElementById("paragraph");
+  var highscore = document.getElementById("highscore");
+  var newUl = document.createElement("ul");
+  var newLi = document.createElement("li");
+  var newLib = document.createElement("li");
+  var newLic = document.createElement("li");
+  var newLid = document.createElement("li");
+  var newButton = document.createElement("button");
+  var newLabel = document.createElement("label");
+  var newButtonb = document.createElement("button");
+  var newLabelb = document.createElement("label");
+  var newButtonc = document.createElement("button");
+  var newLabelc = document.createElement("label");
+  var newButtond = document.createElement("button");
+  var newLabeld = document.createElement("label");
 
-function addNew(){
-  document.getElementById("header").innerHTML = myQuestions[questionCount].question;
-  var paragraph = document.getElementById('paragraph');
-  var highscore = document.getElementById('highscore');
-  var newUl = document.createElement('ul')
-  var newLi = document.createElement('li')
-  var newLib = document.createElement('li')
-  var newLic = document.createElement('li')
-  var newLid = document.createElement('li')
-  var newButton = document.createElement('button');
-  var newLabel = document.createElement('label');
-  var newButtonb = document.createElement('button');
-  var newLabelb = document.createElement('label');
-  var newButtonc = document.createElement('button');
-  var newLabelc = document.createElement('label');
-  var newButtond = document.createElement('button');
-  var newLabeld = document.createElement('label');
-  
   paragraph.remove();
   highscore.remove();
   startButton.remove();
   document.body.appendChild(newUl);
 
   newUl.appendChild(newLi);
-  newButton.setAttribute('id', 'a');
-  newButton.setAttribute('name', 'answer');
-  newLabel.setAttribute('id', 'a_text');
-  newLabel.setAttribute('for', 'a');
+  newButton.setAttribute("id", "a");
+  newButton.setAttribute("name", "answer");
+  newLabel.setAttribute("id", "a_text");
+  newLabel.setAttribute("for", "a");
   newLi.append(newButton);
   newButton.append(newLabel);
   newLabel.textContent = myQuestions[questionCount].answers.a;
-  
+
   newUl.append(newLib);
-  newButtonb.setAttribute('id', 'b');
-  newButtonb.setAttribute('name', 'answer');
-  newLabelb.setAttribute('id', 'b_text');
-  newLabelb.setAttribute('for', 'b');
+  newButtonb.setAttribute("id", "b");
+  newButtonb.setAttribute("name", "answer");
+  newLabelb.setAttribute("id", "b_text");
+  newLabelb.setAttribute("for", "b");
   newLib.append(newButtonb);
   newButtonb.append(newLabelb);
   newLabelb.textContent = myQuestions[questionCount].answers.b;
 
   newUl.appendChild(newLic);
-  newButtonc.setAttribute('id', 'c');
-  newButtonc.setAttribute('name', 'answer');
-  newLabelc.setAttribute('id', 'c_text');
-  newLabelc.setAttribute('for', 'c');
+  newButtonc.setAttribute("id", "c");
+  newButtonc.setAttribute("name", "answer");
+  newLabelc.setAttribute("id", "c_text");
+  newLabelc.setAttribute("for", "c");
   newLic.append(newButtonc);
   newButtonc.append(newLabelc);
   newLabelc.textContent = myQuestions[questionCount].answers.c;
 
   newUl.appendChild(newLid);
-  newButtond.setAttribute('id', 'd');
-  newButtond.setAttribute('name', 'answer');
-  newLabeld.setAttribute('id', 'd_text');
-  newLabeld.setAttribute('for', 'd');
+  newButtond.setAttribute("id", "d");
+  newButtond.setAttribute("name", "answer");
+  newLabeld.setAttribute("id", "d_text");
+  newLabeld.setAttribute("for", "d");
   newLid.append(newButtond);
   newButtond.append(newLabeld);
   newLabeld.textContent = myQuestions[questionCount].answers.d;
- 
- 
-
 }
-startButton.addEventListener('click', startQuiz);
-startButton.addEventListener('click', addNew);
+
+for (i = 0; i < myQuestions.length; i++){
+function selectAnswer(){
+  if (answer != myQuestions[questionCount].correctAnswer){
+    timerCount - 5; 
+    questionCount++;
+  }
+  else{
+    questionCount++
+  }
+}
+}
+
+startButton.addEventListener("click", startQuiz);
+startButton.addEventListener("click", addNew);
+newButton.addEventListener("click", selectAnswer)
 
