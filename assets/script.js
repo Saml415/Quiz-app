@@ -151,18 +151,18 @@ function addNew() {
 
 
 
+/* function fin
 
+*/
 
 
 
 
 // function selectAnswer(answerChoice){
 //   if (answerChoice != myQuestions[questionCount].correctAnswer){  
-//  timerCount - 5;    
-//  questionCount+;+
-//  }  else{  
-//  questionCount++  }}
-
+//  timerCount -= 5;    
+//  questionCount+;
+// }
 
 
 startButton.addEventListener("click", startQuiz);
@@ -171,9 +171,41 @@ startButton.addEventListener("click", startQuiz);
 answerContainer.addEventListener("click", function(event) {
   var element = event.target
   if(element.matches('button')){ 
+  var userAnswer = element.getAttribute("id")
+  var corAnswer = myQuestions[questionIndex].correctAnswer
+  if(userAnswer != corAnswer){
+    timerCount -= 5
+  }
+/* 
+Correct Answer
+User Answer
+var userAnswer == element.getAttribute("id")
+var corAnswer == myQuestions[questionCount].correctAnswer
+if userAnswer != corAnswer
+timerCount -= 5
+
+
+if questionIndex ==  questionIndex.length - 1
+stop the timer 
+equate remaining time to score
+save score in local storage
+go to score page
+
+if timerCount <= 0
+score = 0
+save score in local storage
+go to score page
+
+*/
+
+
+
+
+
     questionIndex++;
     addNew();
   }
+  
 });
 
 
