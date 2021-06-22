@@ -63,8 +63,10 @@ var loseCounter = 0;
 var isWin = false;
 var timer;
 var timerCount;
-var questionIndex;
+var questionIndex = 0;
 var answerContainer = document.querySelector('#answer-container');
+var paragraph = document.getElementById("paragraph");
+var highscore = document.getElementById("highscore");
 console.log(answerContainer);
 function startTimer() {
   timer = setInterval(function () {
@@ -83,16 +85,17 @@ function startTimer() {
 function startQuiz() {
   isWin = false;
   timerCount = 60;
-  questionIndex = 0
   startTimer();
+  paragraph.remove();
+  highscore.remove();
+  startButton.remove();
+  addNew();
+
 }
 
 function addNew() {
   document.getElementById("header").innerHTML =
-    myQuestions[questionIndex].question;
-  var paragraph = document.getElementById("paragraph");
-  var highscore = document.getElementById("highscore");
-  var newWrap = document.createElement("div")
+  myQuestions[questionIndex].question;
   var newUl = document.createElement("ul");
   var newLi = document.createElement("li");
   var newLib = document.createElement("li");
@@ -104,22 +107,12 @@ function addNew() {
   var newButtond = document.createElement("button");
   console.log(answerContainer);
   
-  paragraph.remove();
-  highscore.remove();
-  startButton.remove();
+ 
   document.body.append(answerContainer);
   answerContainer.append(newUl);
 
 
-  newWrap.setAttribute("class", "wrapper")
-
-  // var answerContainer = document.querySelector('.wrapper');
-
-  // answerContainer.addEventListener('click', function(event){
-  //   var element = event.target
-  
-  
-  // });
+ 
 
 
 
@@ -148,7 +141,18 @@ function addNew() {
   newButtond.setAttribute("name", "answer");
   newLid.append(newButtond);
   newButtond.textContent = myQuestions[questionIndex].answers.d;
+  
 }
+
+
+
+
+
+
+
+
+
+
 
 
 // function selectAnswer(answerChoice){
@@ -158,20 +162,18 @@ function addNew() {
 //  }  else{  
 //  questionCount++  }}
 
-function nextQuestion(event){
-  document.querySelector("#")
-} 
+
 
 startButton.addEventListener("click", startQuiz);
-startButton.addEventListener("click", addNew);
+
 
 answerContainer.addEventListener("click", function(event) {
   var element = event.target
-  if(element.matches('button')){
+  if(element.matches('button')){ 
+    questionIndex++;
+    addNew();
   }
 });
-
-
 
 
 
