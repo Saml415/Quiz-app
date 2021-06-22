@@ -94,6 +94,7 @@ function startQuiz() {
 }
 
 function addNew() {
+  answerContainer.innerHTML = ""
   document.getElementById("header").innerHTML =
   myQuestions[questionIndex].question;
   var newUl = document.createElement("ul");
