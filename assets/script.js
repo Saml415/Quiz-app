@@ -63,7 +63,7 @@ var loseCounter = 0;
 var isWin = false;
 var timer;
 var timerCount;
-var questionIndex = 3;
+var questionIndex;
 var answerContainer = document.querySelector('#answer-container');
 console.log(answerContainer);
 function startTimer() {
@@ -83,6 +83,7 @@ function startTimer() {
 function startQuiz() {
   isWin = false;
   timerCount = 60;
+  questionIndex = 0
   startTimer();
 }
 
@@ -167,7 +168,6 @@ startButton.addEventListener("click", addNew);
 answerContainer.addEventListener("click", function(event) {
   var element = event.target
   if(element.matches('button')){
-    questionIndex++;
   }
 });
 
