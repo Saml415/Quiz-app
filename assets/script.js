@@ -204,7 +204,7 @@ go to score page
     if(questionIndex == myQuestions.length){
       clearInterval(timer);
       console.log(timerCount)
-      localStorage.setItem('score', JSON.stringify(score))
+      location.replace("file:///C:/Users/bobdo/Desktop/Quiz-app/highscore.html")
 
     }else{
       console.log("calling addNew")
