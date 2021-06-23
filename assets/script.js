@@ -177,13 +177,13 @@ answerContainer.addEventListener("click", function(event) {
     if(questionIndex == myQuestions.length){
       clearInterval(timer);
       localStorage.setItem('timerCount', JSON.stringify(timerCount))
-      alert('You got a score of ' + timerCount)
+      alert('You got a score of ' + timerCount + " refresh the page to try for a better score!")
       
       
       
     }if(timerCount <= 0){
     localStorage.setItem('timerCount', JSON.stringify(timerCount))
-    alert('You ran out of time!')
+    alert('You ran out of time! Refresh to try again.')
     
     }else{
       
