@@ -58,11 +58,10 @@ var c_text = document.getElementById("c_text");
 var d_text = document.getElementById("d_text");
 var timerEl = document.getElementById("timer");
 var startButton = document.getElementById("startbutton");
-var winCounter = 0;
-var loseCounter = 0;
 var isWin = false;
 var timer;
 var timerCount;
+var score = timerCount;
 var questionIndex = 0;
 var answerContainer = document.querySelector('#answer-container');
 var paragraph = document.getElementById("paragraph");
@@ -74,11 +73,11 @@ function startTimer() {
     timerEl.textContent = timerCount;
     if (isWin && timerCount > 0) {
       clearInterval(timer);
-      winGame();
+      
     }
     if (timerCount <= 0) {
       clearInterval(timer);
-      loseCounter();
+      
     }
   }, 1000);
 }
@@ -176,13 +175,15 @@ answerContainer.addEventListener("click", function(event) {
   if(userAnswer != corAnswer){
     timerCount -= 5
   }
+
+
+  if(questionIndex == questionIndex.length -1){
+    console.log("Hi")
+ 
+  }
+  
 /* 
-Correct Answer
-User Answer
-var userAnswer == element.getAttribute("id")
-var corAnswer == myQuestions[questionCount].correctAnswer
-if userAnswer != corAnswer
-timerCount -= 5
+
 
 
 if questionIndex ==  questionIndex.length - 1
@@ -199,11 +200,22 @@ go to score page
 */
 
 
-
-
-
     questionIndex++;
-    addNew();
+    if(questionIndex == myQuestions.length){
+      clearInterval(timer);
+      console.log(timerCount)
+      localStorage.setItem('score', JSON.stringify(score))
+
+    }else{
+      console.log("calling addNew")
+      addNew();
+    }
+    
+
+
+
+
+
   }
   
 });
