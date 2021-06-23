@@ -203,14 +203,11 @@ go to score page
     questionIndex++;
     if(questionIndex == myQuestions.length){
       clearInterval(timer);
-      timerCount = score
       console.log(timerCount)
-      // save score in local storage
+      localStorage.setItem('timerCount', JSON.stringify(timerCount))
       location.replace("file:///C:/Users/bobdo/Desktop/Quiz-app/highscore.html")
 
-    }if(timerCount <= 0){
-    score = 0
-    // save score in local storage
+
     }else{
       console.log("calling addNew")
       addNew();
