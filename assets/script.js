@@ -150,18 +150,6 @@ function addNew() {
 
 
 
-/* function fin
-
-*/
-
-
-
-
-// function selectAnswer(answerChoice){
-//   if (answerChoice != myQuestions[questionCount].correctAnswer){  
-//  timerCount -= 5;    
-//  questionCount+;
-// }
 
 
 startButton.addEventListener("click", startQuiz);
@@ -182,34 +170,23 @@ answerContainer.addEventListener("click", function(event) {
  
   }
   
-/* 
 
-
-
-if questionIndex ==  questionIndex.length - 1
-stop the timer 
-equate remaining time to score
-save score in local storage
-go to score page
-
-if timerCount <= 0
-score = 0
-save score in local storage
-go to score page
-
-*/
 
 
     questionIndex++;
     if(questionIndex == myQuestions.length){
       clearInterval(timer);
-      console.log(timerCount)
       localStorage.setItem('timerCount', JSON.stringify(timerCount))
-      location.replace("file:///C:/Users/bobdo/Desktop/Quiz-app/highscore.html")
-
-
+      alert('You got a score of ' + timerCount)
+      
+      
+      
+    }if(timerCount <= 0){
+    localStorage.setItem('timerCount', JSON.stringify(timerCount))
+    alert('You ran out of time!')
+    
     }else{
-      console.log("calling addNew")
+      
       addNew();
     }
     
