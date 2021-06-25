@@ -85,7 +85,6 @@ function startQuiz() {
   isWin = false;
   timerCount = 60;
   startTimer();
-  paragraph.remove();
   startButton.remove();
   addNew();
 
