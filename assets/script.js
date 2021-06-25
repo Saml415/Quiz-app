@@ -86,7 +86,6 @@ function startQuiz() {
   timerCount = 60;
   startTimer();
   paragraph.remove();
-  highscore.remove();
   startButton.remove();
   addNew();
 
