@@ -190,10 +190,6 @@ answerContainer.addEventListener("click", function(event) {
     }
     
 
-
-
-
-
   }
   
 });
